@@ -16,6 +16,8 @@ namespace AppAgendaDeTarefas;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private List<String> listaTarefas = new List<String>();
+    
     public MainWindow()
     {
         InitializeComponent();
@@ -31,11 +33,31 @@ public partial class MainWindow : Window
         if (!string.IsNullOrWhiteSpace(TxtTarefa.Text))
         {
             ListaTarefas.Items.Add(TxtTarefa.Text);
+            AdicionarTarefas();
             TxtTarefa.Clear();
         }
         else
         {
             MessageBox.Show("Digite uma tarefa válida!");
+        }
+    }
+    private void Limpar_lista_Click(object sender, RoutedEventArgs e)
+    {
+        if (ListaTarefas.Items.Count > 0)
+        {
+            
+            ListaTarefas.Items.Clear(); 
+            
+            MessageBox.Show("A lista foi limpa com sucesso!", "Limpeza");
+        }
+    }
+    private void AdicionarTarefas()
+    {
+        string descricao = TxtTarefa.Text.Trim();
+
+        if (!string.IsNullOrWhiteSpace(descricao))
+        {
+            listaTarefas.Add(descricao);
         }
     }
 }
