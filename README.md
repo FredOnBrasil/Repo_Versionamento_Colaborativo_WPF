@@ -73,11 +73,12 @@ Cada aluno deverá implementar **uma** das funcionalidades abaixo, seguindo a nu
 |-------|----|----------------|--------|
 |Danilo | 1   |      Implementação de funcionalidade de limpar lista          |   Ok     |
 |Diulie      |  2  |  Implementação de funcionalidade de editar tarefa               |    Ok     |
-|   Pedro Moura   | 3    | Implementação de funcionalidade para duplicar tarefa       |    Ok    |
+|Pedro Moura   | 3    | Implementação de funcionalidade para duplicar tarefa       |    Ok    |
 |  Luna   | 4    | Implementação de funcionalidade de contador de tarefas       |    Ok    |
 |  Otavio   | 5    | Implementação de validaçao de adicionar tarefas vazias     |    Ok    |
 | Marilene | 6 |Implementação da funcionalidade permitir mover tarefa para cima (up) | Ok |
 | Luis Ivan | 7 |Implementação da funcionalidade permitir mover tarefa para baixo (Down) | Ok |
+| Maycon | 8 |Implementação da funcionalidade de marcar tarefa como concluida com Check | Ok |
 
 
 ---
