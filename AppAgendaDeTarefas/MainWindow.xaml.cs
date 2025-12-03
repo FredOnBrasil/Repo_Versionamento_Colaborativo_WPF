@@ -19,12 +19,12 @@ public partial class MainWindow : Window
     private string descricao;
     private int i;
     private List<String> listaTarefas = new List<String>();
-    
+
     public MainWindow()
     {
         InitializeComponent();
     }
-    
+
     /// <summary>
     /// funcionalidade inicial 
     /// </summary>
@@ -42,29 +42,33 @@ public partial class MainWindow : Window
         {
             MessageBox.Show("Digite uma tarefa válida!");
         }
+
         ContadorTarefa();
     }
+
     private void Limpar_lista_Click(object sender, RoutedEventArgs e)
     {
         if (ListaTarefas.Items.Count > 0)
         {
-            
-            ListaTarefas.Items.Clear(); 
-            
+
+            ListaTarefas.Items.Clear();
+
             MessageBox.Show("A lista foi limpa com sucesso!", "Limpeza");
         }
+
         TbxContadorTarefas.Text = String.Empty;
     }
+
     private void AdicionarTarefas()
     {
-         descricao = TxtTarefa.Text.Trim();
+        descricao = TxtTarefa.Text.Trim();
 
         if (!string.IsNullOrWhiteSpace(descricao))
         {
             listaTarefas.Add(descricao);
         }
     }
-    
+
     private void Editartarefa_OnClick(object sender, RoutedEventArgs e)
     {
         // Verifica se existe uma tarefa selecionada
@@ -98,14 +102,17 @@ public partial class MainWindow : Window
         {
             string duplicata = ListaTarefas.SelectedItem.ToString();
             ListaTarefas.Items.Add(duplicata);
-            
-            MessageBox.Show("Tarefa Duplicada com sucesso!", "Duplicar",MessageBoxButton.OK, MessageBoxImage.Information);
+
+            MessageBox.Show("Tarefa Duplicada com sucesso!", "Duplicar", MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
         else
         {
-            MessageBox.Show("Selecione uma tarefa para duplicar!", "Duplicar",MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Selecione uma tarefa para duplicar!", "Duplicar", MessageBoxButton.OK,
+                MessageBoxImage.Information);
 
         }
+
         ContadorTarefa();
 
     }
@@ -117,5 +124,40 @@ public partial class MainWindow : Window
             TbxContadorTarefas.Text = i.ToString();
         }
     }
-    
+
+    private void BtnMoverTarefaUp_Click(object sender, RoutedEventArgs e)
+    {
+        // Obtem o índice da tarefa selecionada.
+        int selectedIndex = ListaTarefas.SelectedIndex;
+
+        //Verifica se não existe nenhuma tarefa selecionada.
+        if (selectedIndex == -1)
+        {
+            MessageBox.Show("Selecione uma tarefa para movimentá-la!", 
+                "Mover", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
+
+        //Verifica se a tarefa já está no topo
+        if (selectedIndex == 0)
+        {
+            MessageBox.Show("A tarefa já está posicionada no topo da lista!",
+                "Mover", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
+        }
+        
+        string tarefaParaMover = ListaTarefas.SelectedItem as string;
+
+        // Remove a tarefa da posição atual
+        ListaTarefas.Items.RemoveAt(selectedIndex);
+
+        // Insere a tarefa na posição anterior
+        ListaTarefas.Items.Insert(selectedIndex - 1, tarefaParaMover);
+
+        // Atualiza a seleção para o novo índice
+        ListaTarefas.SelectedIndex = selectedIndex - 1;
+
+        MessageBox.Show("Tarefa movida para cima com sucesso!", 
+            "Mover", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
 }

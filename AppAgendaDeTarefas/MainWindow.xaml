@@ -21,10 +21,19 @@
             <Button Content="Limpar Lista" Width="120" Height="30" Click="Limpar_lista_Click"/>
             <Button Content="Editar Tarefa" Width="120" Height="30" Click="Editartarefa_OnClick"/>
             <!-- Botão duplicar tarefa -->
-            <Button Content="Diuplicar tarefa"
+            <Button Content="Duplicar tarefa"
                     Width="120"
                     Height="30"
                     Click="BtnDuplicar"/>
+            
+            <!-- Botão Mover tarefa para cima -->
+            <Button 
+                Content="Mover para Cima (UP)"
+                Width="120" 
+                Height="30" 
+                Click="BtnMoverTarefaUp_Click" 
+                Margin="0,0,10,5"/>
+            
         </StackPanel>
 
         <!-- Lista -->
