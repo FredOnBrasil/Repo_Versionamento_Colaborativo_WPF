@@ -160,4 +160,42 @@ public partial class MainWindow : Window
         MessageBox.Show("Tarefa movida para cima com sucesso!", 
             "Mover", MessageBoxButton.OK, MessageBoxImage.Information);
     }
+    private void BtnMoverTarefaDown_Click(object sender, RoutedEventArgs e)
+    {
+        // Obtem o índice da tarefa selecionada.
+        int selectedIndex = ListaTarefas.SelectedIndex;
+
+        //Verifica se não existe nenhuma tarefa selecionada.
+        if (selectedIndex == -1)
+        {
+            MessageBox.Show("Selecione uma tarefa para movimentá-la!", 
+                "Mover", MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
+
+        //Verifica se a tarefa já está no final da lista
+         if (selectedIndex == ListaTarefas.Items.Count -1)
+        {
+            MessageBox.Show("A tarefa já está posicionada no final da lista!",
+                "Mover", MessageBoxButton.OK, MessageBoxImage.Warning);
+            return;
+        }
+        
+        
+        string tarefaParaMover = ListaTarefas.SelectedItem as string;
+
+        // Remove a tarefa da posição atual
+        ListaTarefas.Items.RemoveAt(selectedIndex);
+
+        // Insere a tarefa na posição anterior
+        ListaTarefas.Items.Insert(selectedIndex + 1, tarefaParaMover);
+
+        // Atualiza a seleção para o novo índice
+        ListaTarefas.SelectedIndex = selectedIndex + 1;
+
+        MessageBox.Show("Tarefa movida para baixo com sucesso!", 
+            "Mover", MessageBoxButton.OK, MessageBoxImage.Information);
+        
+    }
+    
 }
