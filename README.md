@@ -84,9 +84,14 @@ Cada aluno deverá implementar **uma** das funcionalidades abaixo, seguindo a nu
 | Kaio | 11 |Implementação da funcionalidade de pesquisar na lista de tarefas | Ok |
 | Nicolas | 12 |Implementação da funcionalidade de atribuir categorias as tarefas | Ok |
 | Bruno | 13 |Implementação ebibição de data e hora ao lado da tarefa| Ok |
+| Alice | 14 |Implementação do botão do modo escuro e claro | Ok |
+| Erick | 15 |Implementação do botão de ordenar A - Z| Ok |
+| Miguel | 16 |Implementação do botão de ordenar Z - A| Ok |
+| Lucas | 17 |Implementação caixa de confirmação de excluir tarefa| Ok |
 
 
 ---
+
 
 
 
