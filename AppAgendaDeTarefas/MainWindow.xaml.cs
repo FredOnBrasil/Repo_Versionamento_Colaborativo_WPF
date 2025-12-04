@@ -20,6 +20,10 @@ public partial class MainWindow : Window
     private string descricao;
     private int i;
     private List<String> listaTarefas = new List<String>();
+ 
+    // Lista para armazenar as datas de criação das tarefas
+    private List<DateTime> datasCriacao = new List<DateTime>();
+    
     // Lista de categorias para preencher o ComboBox (necessita de um ComboBox no XAML)
     public List<string> ListaDeCategorias { get; set; }
 
@@ -53,16 +57,20 @@ public partial class MainWindow : Window
     /// <param name="e"></param>
     private void Adicionar_Click(object sender, RoutedEventArgs e)
     {
-        // 1. Pega o texto da tarefa e a categoria selecionada (necessário para a nova funcionalidade)
+        // 1. Pega o texto da tarefa e a categoria selecionada
         string novaTarefa = TxtTarefa.Text.Trim();
-        string categoriaSelecionada = CategoriaAtual ?? "Sem Categoria"; // CategoriaAtual vem do Binding
+        string categoriaSelecionada = CategoriaAtual ?? "Sem Categoria";
 
         if (!string.IsNullOrWhiteSpace(novaTarefa))
         {
-            
-            string itemFormatado = $" {novaTarefa} [{categoriaSelecionada}]";
+            // MODIFICAÇÃO: Adiciona data/hora à tarefa
+            DateTime dataCriacao = DateTime.Now;
+            string itemFormatado = $" {novaTarefa} [{categoriaSelecionada}] - Criada em: {dataCriacao:dd/MM/yyyy HH:mm}";
+        
             ListaTarefas.Items.Add(itemFormatado);
-            listaTarefas.Add(itemFormatado); 
+            listaTarefas.Add(itemFormatado);
+            datasCriacao.Add(dataCriacao); // ← Armazena a data de criação
+        
             TxtTarefa.Clear();
             TxtTarefa.Focus();
         }
