@@ -82,7 +82,10 @@ Cada aluno deverá implementar **uma** das funcionalidades abaixo, seguindo a nu
 | Yhan | 9 |Implementação da funcionalidade de  Exportar lista de tarefas para arquivo TXT | Ok |
 | Yhan | 10 |Implementação da funcionalidade de Importar lista de tarefas de arquivo TXT | Ok |
 | Kaio | 11 |Implementação da funcionalidade de pesquisar na lista de tarefas | Ok |
+| Nicolas | 12 |Implementação da funcionalidade de atribuir categorias as tarefas | Ok |
+
 
 ---
+
 
 
